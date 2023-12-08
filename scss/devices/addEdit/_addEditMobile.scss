@@ -1,0 +1,51 @@
+@media (min-width: $mobileScreen){
+    .add, .edit {
+        padding-top: 5vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: $grey;
+        row-gap: 3vh;
+        > article {
+            background-color: white;
+            padding: 1vh;
+            border: 2px solid $brown;
+            border-radius: 10px;
+        }
+        > section {
+            background-color: white;
+            border: 2px solid $brown;
+            padding: 2vh;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            row-gap: 2vh;
+        }
+        aside {
+            display: flex;
+            justify-content: space-between;
+            > input {
+                width: 50%;
+                text-align: center;
+            }
+        }
+        select {
+            width: 30%;
+            text-align: center;
+        }
+        .meanings {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            input {
+                width: 98%;
+            }
+        }
+        button {
+            font-weight: 600;
+            background-color: white;
+            margin-top: 1vh;
+        }   
+    }
+}
