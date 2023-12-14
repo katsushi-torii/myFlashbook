@@ -1,0 +1,9 @@
+@media (min-width : $desktopScreen) {
+    header {
+        nav {
+            > button {
+                display: none;
+            }
+        }
+    }
+}

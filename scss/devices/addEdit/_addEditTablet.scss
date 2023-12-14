@@ -1,0 +1,38 @@
+@media (min-width: $tabletScreen){
+    .add, .edit {
+        font-size: 24px;
+        > section {
+            width: 80%;
+        }
+        input, select {
+            font-size: 18px;
+        }
+        button {
+            font-size: 24px;
+            transition: .4s;
+            &:hover {
+                background-color: $brown;
+                color: whitesmoke;
+            }
+        }
+
+        > aside {
+            width: 100%;
+            a {
+                display: none;
+            }
+            .goBack {
+                display: flex;
+                border-radius: 0;
+                width: 80%;
+                height: 5vh;
+                font-size: 24px;
+                transition: .4s;
+                &:hover {
+                    background-color: black;
+                    color: whitesmoke;
+                }
+            }
+        }
+    }
+}

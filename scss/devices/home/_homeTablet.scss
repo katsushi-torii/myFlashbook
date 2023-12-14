@@ -1,0 +1,57 @@
+@media (min-width:$tabletScreen){
+    .home {
+        a {
+            transition: .4s;
+            &:hover {
+                background-color: white;
+                color: $brown;
+            }
+        }
+        > aside {
+            > button {
+                display: none;
+            }
+            > .toTop {
+                display: flex;
+                transition: .4s;
+                width: 7vh;
+                height: 7vh;
+                border: 1px solid black;
+                &:hover {
+                    background-color: white;
+                    color: black;
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+    .filter {
+        form {
+            width: 50%;
+        }
+        [type="submit"] {
+            transition: .4s;
+            &:hover {
+                background-color: white;
+                color: $brown;
+            }
+        }
+    }
+    .order {
+        width: 60%;
+        align-self: center;
+        li { 
+            transition: .4s;
+            &:hover {
+                background-color: white;
+                color: $brown;
+            }
+        }
+    }
+    .list {
+        align-items: center;
+        li {
+            width: 60%;
+        }
+    }
+}

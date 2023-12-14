@@ -1,0 +1,131 @@
+@media (min-width: $mobileScreen){
+    .home {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 3vh;
+        background-color: $grey;
+        > article {
+            display: flex;
+            flex-direction: column;
+            row-gap: 3vh;
+        }
+    }
+    .filter {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        background-color: white;
+        padding-bottom: 3vh;
+        button {
+            border: none;
+            background-color: white;
+            width: 5vh;
+            height: 5vh;
+            align-self: flex-end;
+        }
+        form {
+            display: flex;
+            justify-content: space-between;
+            row-gap: 1vh;
+            width: 80%;
+            > input:nth-child(1) {
+                width: 70%;
+                background-color: white;
+            }
+            > input:nth-child(2) {
+                width: 30%;
+                background-color: $brown;
+                color: white;
+            }
+            input {
+                text-align: center;
+                border: 1px solid black;
+                color: black;
+                padding: 2%;
+            }
+        }
+    }
+    .order {
+        display: flex;
+        justify-content: space-around;
+        padding-top: 3vh;
+        li {
+            background-color: $brown;
+            border: 1px solid black;
+            padding: 2%;
+            border-radius: 10px;
+        }
+        a {
+            color: white;
+        }
+    }
+    .list {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1vh;
+        padding: 0 3vh;
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: white;
+            padding: 2%;
+        }
+        section {
+            width: 70%;
+            display: flex;
+        }
+        strong {
+            width: 40%;
+            text-align: center;
+        }
+        span {
+            width: 60%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        aside {
+            width: 25%;
+            display: flex;
+            justify-content: center;
+        }
+        a {
+            background-color: $brown;
+            color: white;
+            padding: 5%;
+            border: 1px solid $brown;
+        }
+    }
+    //for fixed buttons
+    .home {
+        position: relative;
+        > aside {
+            display: flex;
+            justify-content: center;
+            column-gap: 20vw;
+            position: fixed;
+            z-index: 1;
+            top: 85vh;
+            width: 100%;
+            > button, a {
+                background-color: $brown;
+                border: none;
+                color: whitesmoke;
+                width: 15vw;
+                height: 15vw;
+                border-radius: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: 600;
+            }
+            > .toTop {
+                display: none;
+            }
+        }
+    }
+}

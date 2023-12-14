@@ -1,0 +1,27 @@
+@media (min-width:$tabletScreen){
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+        nav {
+            display: flex;
+            column-gap: 2vh;
+            >a, >button {
+                display: flex;
+                background-color: white;
+                border: 1px solid black;
+                color: black;
+                padding: 1vh;
+                border: 1px solid whitesmoke;
+                border-radius: 8px;
+                font-size: 16px;
+                transition: .4s;
+                &:hover{
+                    background-color: black;
+                    color: whitesmoke;
+                }
+            }
+        }
+    }
+}
