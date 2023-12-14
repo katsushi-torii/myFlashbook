@@ -1,6 +1,6 @@
 @media (min-width: $mobileScreen){
     .add, .edit {
-        padding-top: 5vh;
+        padding: 5vh 0;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -46,6 +46,7 @@
             font-weight: 600;
             background-color: white;
             margin-top: 1vh;
+            border: 2px solid $brown;
         }   
     }
 }

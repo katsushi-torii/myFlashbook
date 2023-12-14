@@ -1,0 +1,33 @@
+@media (min-width: $desktopScreen){
+    .word {
+        > section {
+            width: 50%;
+            font-size: 24px;
+            row-gap: 4vh;
+            padding: 3vh;
+            > article {
+                column-gap: 4vh;
+                font-size: 28px;
+            }
+            p {
+                padding-top: 3vh;
+            }
+        }
+        > aside {
+            width: 30%;
+            a, button {
+                font-size: 20px;
+            }
+        }
+        blockquote {
+            width: 20%;
+            font-size: 20px;
+            button {
+                width: 7vw;
+                height: 3vw;
+                font-size: 20px;
+            }
+        }
+
+    }
+}

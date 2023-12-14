@@ -51,13 +51,13 @@
         justify-content: space-around;
         padding-top: 3vh;
         li {
-            background-color: white;
+            background-color: $brown;
             border: 1px solid black;
             padding: 2%;
             border-radius: 10px;
         }
         a {
-            color: black;
+            color: white;
         }
     }
     .list {
@@ -97,6 +97,7 @@
             background-color: $brown;
             color: white;
             padding: 5%;
+            border: 1px solid $brown;
         }
     }
     //for fixed buttons

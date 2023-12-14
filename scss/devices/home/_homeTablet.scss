@@ -3,8 +3,8 @@
         a {
             transition: .4s;
             &:hover {
-                background-color: black;
-                color: whitesmoke;
+                background-color: white;
+                color: $brown;
             }
         }
         > aside {
@@ -16,6 +16,7 @@
                 transition: .4s;
                 width: 7vh;
                 height: 7vh;
+                border: 1px solid black;
                 &:hover {
                     background-color: white;
                     color: black;
@@ -31,8 +32,8 @@
         [type="submit"] {
             transition: .4s;
             &:hover {
-                background-color: black;
-                color: whitesmoke;
+                background-color: white;
+                color: $brown;
             }
         }
     }
@@ -42,8 +43,8 @@
         li { 
             transition: .4s;
             &:hover {
-                background-color: black;
-                color: whitesmoke;
+                background-color: white;
+                color: $brown;
             }
         }
     }
