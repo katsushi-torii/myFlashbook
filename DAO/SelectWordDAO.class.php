@@ -18,9 +18,9 @@
             return self::$db->resultSet();
         }
 
-        public static function getMatchById( int $id ){
+        public static function getWordById( int $id ){
 
-            $sql = "SELECT * FROM matches WHERE id=:id";
+            $sql = "SELECT * FROM words WHERE id=:id";
     
             self::$db->query($sql);
     

@@ -79,7 +79,7 @@
                     <span>'.$word->meaning.'</span>
                 </section>
                 <aside>
-                    <a href="">Detail</a>
+                    <a href="word.php?id='.$word->id.'">Detail</a>
                 </aside>
             </li>
             ';
