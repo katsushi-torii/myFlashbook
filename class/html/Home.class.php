@@ -37,7 +37,7 @@
             $htmlFilter = '
             <section class="filter">
                 <button class="close">✖</button>
-                <form action="GET">
+                <form method="GET">
                     <input type="text" name="keyword" placeholder="Enter Keyword">
                     <input type="submit" value="Search">
                 </form>
@@ -46,14 +46,15 @@
             return $htmlFilter;
         }
 
-        static function order(){
+        static function order($parameter){
             $htmlOrder = '
             <article>
                 <ul class="order">
-                    <li><a href="">A↓</a></li>
-                    <li><a href="">Z↓</a></li>
-                    <li><a href="">Date↓</a></li>
-                    <li><a href="">Date↑</a></li>
+                    <li><a href="?" class="reset">Reset</a></li>
+                    <li><a href="?'.$parameter.'&sortBy=alpDesc">A↓</a></li>
+                    <li><a href="?'.$parameter.'&sortBy=alp">Z↓</a></li>
+                    <li><a href="?'.$parameter.'&sortBy=dateDesc">Date↓</a></li>
+                    <li><a href="?'.$parameter.'&sortBy=date">Date↑</a></li>
                 </ul>
             ';
             return $htmlOrder;
