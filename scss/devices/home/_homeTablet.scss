@@ -40,13 +40,6 @@
     .order {
         width: 60%;
         align-self: center;
-        li { 
-            transition: .4s;
-            &:hover {
-                background-color: white;
-                color: $brown;
-            }
-        }
     }
     .list {
         align-items: center;
