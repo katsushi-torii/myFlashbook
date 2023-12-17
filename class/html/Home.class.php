@@ -26,7 +26,7 @@
                 <aside>
                     <button class="search">Search</button>
                     <a href="addForm.php">Add</a>
-                    <a>Test</a>
+                    <a href="start.php">Test</a>
                     <a class="toTop">↑</a>
                 </aside>
             ';

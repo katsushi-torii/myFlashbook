@@ -9,7 +9,7 @@
             if($booleon){
                 $htmlHeader .= '
                 <a href="addForm.php" class="addMatch">Add</a>
-                <a href="#" class="goTest">Test</a>
+                <a href="start.php" class="goTest">Test</a>
                 <button class="search">Search</button>';
             }else{
                 $htmlHeader .= '<a href="home.php" class="toHome">List</a>';

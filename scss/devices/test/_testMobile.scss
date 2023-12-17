@@ -14,6 +14,7 @@
 
             a {
                 background-color: $brown;
+                border: 1px solid $brown;
                 color: whitesmoke;
                 padding: 2%;
                 font-weight: 600;
@@ -40,14 +41,14 @@
             padding: 1vh 0;
             a {
                 background-color: white;
-                border: 1px solid black;
+                border: 1px solid $brown;
                 width: 10vw;
                 height: 10vw;
                 border-radius: 100%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                color: black;
+                color: $brown;
                 font-weight: 600;
                 font-size: 16px;
             }
@@ -56,8 +57,10 @@
 
     .test {
         display: flex;
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
-        padding: 30vh 0;
+        padding: 20vh 0;
         background-color: $grey;
 
         > section {
@@ -67,6 +70,11 @@
             row-gap: 3vh;
             width: 75%;
             display: none;
+
+            > p {
+                display: none;
+                color: red;
+            }
         }
         
         article {
@@ -110,6 +118,8 @@
             width: 60%;
             padding: 5%;
             border: 2px solid $brown;
+            
+            display: none;
 
             > aside {
                 display: flex;
