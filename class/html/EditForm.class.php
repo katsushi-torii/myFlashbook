@@ -64,7 +64,7 @@
             $htmlOptions = '
                 <aside>
                     <a href="home.php">List</a>
-                    <a href="word.php?id='.$word->id.'" class="goBack">戻る</a>
+                    <a href="word.php?id='.$word->id.'" class="goBack">Go back</a>
                 </aside>
             </main>
             ';

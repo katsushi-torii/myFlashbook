@@ -8,6 +8,11 @@
             a {
                 font-size: 24px;
                 padding: 5%;
+                transition: .4s;
+                &:hover {
+                    background-color: white;
+                    color: $brown;
+                }
             }
         }
 
