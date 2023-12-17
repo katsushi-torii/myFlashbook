@@ -66,11 +66,11 @@
             return $htmlOptions;
         }
 
-        static function script(){
-            $htmlScript = '
+        static function pageEnd(){
+            $htmlEnd = '
             <script src="../../Components/js/wordData.js" defer></script>
             </html>
             ';
-            return $htmlScript;
+            return $htmlEnd;
         }
     }
