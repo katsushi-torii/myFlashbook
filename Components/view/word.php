@@ -16,4 +16,4 @@ echo WordData::pageHead();
 echo Header::header(false);
 echo WordData::wordData($word);
 echo WordData::options($word);
-echo WordData::script();
+echo WordData::pageEnd();

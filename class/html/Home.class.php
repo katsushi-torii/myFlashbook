@@ -25,8 +25,8 @@
             <main class="home"> 
                 <aside>
                     <button class="search">Search</button>
-                    <button>Add</button>
-                    <button>Test</button>
+                    <a href="addForm.php">Add</a>
+                    <a>Test</a>
                     <a class="toTop">↑</a>
                 </aside>
             ';
