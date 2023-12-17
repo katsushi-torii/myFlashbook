@@ -1,6 +1,6 @@
 <?php
 
-    class AddForm {
+    class EditForm {
 
         static function pageHead(){
             $htmlHead = '
@@ -9,7 +9,7 @@
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Add Word</title>
+                <title>Edit Word</title>
                 <link rel="stylesheet" href="../../css/style.css">
                 <script src="https://code.jquery.com/jquery-3.7.1.js"
                 integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
@@ -22,21 +22,21 @@
 
         static function title(){
             $htmlTitle = '
-            <main class="add">
+            <main class="edit">
                 <article>
-                    <h3>Add a Word</h3>
+                    <h3>Edit a Word</h3>
                 </article>
             ';
             return $htmlTitle;
         }
 
-        static function form(){
+        static function form($word){
             $htmlForm = '
             <section>
-                <form action="" method="POST" class="addForm">
+                <form action="" method="POST" class="sditForm">
                     <aside>
                         <label for="word">English Word:</label>
-                        <input type="text" name="word" id="word" required>
+                        <input type="text" name="word" id="word" value="'.$word->word.'" required>
                     </aside>
                     <aside>
                         <label for="meaningNum">Number of meanings:</label>
@@ -51,29 +51,34 @@
                     </aside>
                     <aside>
                         <label for="date">Current date:</label>
-                        <input type="date" name="date" id="date" required>
+                        <input type="date" name="date" id="date" value="'.$word->date.'" required>
                     </aside>
-                    <button onsubmit="">Add</button>
+                    <button onsubmit="">Edit</button>
                 </form>
             </section>
             ';
             return $htmlForm;
         }
 
-        static function options(){
+        static function options($word){
             $htmlOptions = '
                 <aside>
                     <a href="home.php">List</a>
+                    <a href="word.php?id='.$word->id.'" class="goBack">戻る</a>
                 </aside>
             </main>
             ';
             return $htmlOptions;
         }
 
-        static function pageEnd(){
+        static function pageEnd($meaningNum, $meanings){
             $htmlEnd = '
                 </main>
             </body>
+            <script>
+                var meaningNum = '.$meaningNum.';
+                var meanings = "'.$meanings.'";
+            </script>
             <script src="../../Components/js/form.js" defer></script>
             </html>
             ';

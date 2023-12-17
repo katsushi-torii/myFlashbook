@@ -43,7 +43,7 @@
             $htmlOptions = '
                     <aside>
                         <a href="home.php">List</a>
-                        <a href="editForm.php?='.$word->id.'">Edit</a>
+                        <a href="editForm.php?id='.$word->id.'">Edit</a>
                         <button onclick="deleteConfirm()">
                             <i class="fa-solid fa-trash"></i>
                         </button>

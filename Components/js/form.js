@@ -18,3 +18,13 @@ $('#meaningNum').on('change', function(){
         $('.meanings').append(newInput);
     }
 })
+
+//number of meanings and each meanings will be displayed on the form for the default value
+$("#meaningNum option").eq(meaningNum).prop("selected","selected");
+const meaningsArray = meanings.split(", ");
+for(let i = 0; i < $("#meaningNum").val(); i++){
+    let newInput = $(`     
+    <input type="text" name="meaning${i}" id="meaning${i}" value="${meaningsArray[i]}" required>
+    `);
+    $(".meanings").append(newInput);
+}

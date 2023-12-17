@@ -83,6 +83,10 @@
         strong {
             width: 40%;
             text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-left: 1%;
         }
         span {
             width: 60%;
