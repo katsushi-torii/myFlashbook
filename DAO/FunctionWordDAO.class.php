@@ -38,17 +38,17 @@
             return self::$db->lastInsertId();
         }
 
-        // public static function deleteMatch($id){
+        public static function deleteWord($id){
 
-        //     $sql = "DELETE from matches WHERE id=:id";
+            $sql = "DELETE from words WHERE id=:id";
 
-        //     self::$db->query($sql);
+            self::$db->query($sql);
     
-        //     self::$db->bind(":id",$id);
+            self::$db->bind(":id",$id);
     
-        //     self::$db->execute();
+            self::$db->execute();
     
-        //     return self::$db->rowCount();
-        // }
+            return self::$db->rowCount();
+        }
         
     }
