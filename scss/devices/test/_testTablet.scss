@@ -1,0 +1,57 @@
+@media (min-width: $tabletScreen){
+    .start {
+        row-gap: 7vh;
+        
+        > section {
+            width: 50%;
+
+            a {
+                font-size: 24px;
+                padding: 5%;
+            }
+        }
+
+        > article {
+            width: 50%;
+        }
+
+        strong, p {
+            font-size: 20px;
+        }
+
+        > aside {
+            a {
+                display: none;
+            }
+        }
+    }
+
+    .test {
+        > section {
+            width: 50%;
+            font-size: 28px;
+        }
+
+        article {
+            padding: 5%;
+            row-gap: 1vh;
+        }
+
+        button {
+            transition: .4s;
+            &:hover {
+                background-color: white;
+                color: $brown;
+            }
+        }
+
+        .answer {
+            i {
+                font-size: 32px;
+            }
+            button {
+                padding: 2%;
+            }
+        }
+    }
+}

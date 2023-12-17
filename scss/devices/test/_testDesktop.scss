@@ -1,0 +1,17 @@
+@media (min-width: $desktopScreen){
+    .start {
+        > section {
+            width: 30%;
+        }
+
+        > article {
+            width: 40%;
+        }
+    }
+
+    .test {
+        > section {
+            width: 40%;
+        }
+    }
+}
