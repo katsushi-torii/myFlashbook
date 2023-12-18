@@ -25,9 +25,7 @@
         }
 
         > aside {
-            a {
-                display: none;
-            }
+            display: none;
         }
     }
 
@@ -56,6 +54,26 @@
             }
             button {
                 padding: 2%;
+            }
+        }
+    }
+
+    .result {
+        > aside {
+            width: 25%;
+            padding: 2% 0;
+            font-size: 22px;
+        }
+
+        > ul {
+            width: 80%;
+        }
+
+        > a {
+            transition: .4s;
+            &:hover {
+                background-color: white;
+                color: $brown;
             }
         }
     }
