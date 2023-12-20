@@ -29,7 +29,7 @@
                     <article>
                         <blockquote>
                             <strong>TestA:</strong>
-                            <p>Words that you answered correctly for less than 3 times appears. Max 10 questions.</p>
+                            <p>Words that you have not aqquired appears. Max 10 questions.</p>
                         </blockquote>
                         <blockquote>
                             <strong>TestB:</strong>

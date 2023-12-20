@@ -91,12 +91,18 @@
                 display: flex;
                 width: 100%;
                 justify-content: center;
+                align-items: center;
                 column-gap: 2vh;
             }
 
             input {
                 width: 50%;
                 padding: 1%;
+            }
+
+            i {
+                color: red;
+                font-size: larger;
             }
         }
 

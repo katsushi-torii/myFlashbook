@@ -10,6 +10,7 @@
              $stdObj->word = $newWord->getWord();
              $stdObj->meaning = $newWord->getMeaning();
              $stdObj->date = $newWord->getDate();
+             $stdObj->aqquirement = $newWord->getAqquirement();
  
              return $stdObj;
          } else {
@@ -21,6 +22,7 @@
                  $stdObj->word = $newWord[$i]->getWord();
                  $stdObj->meaning = $newWord[$i]->getMeaning();
                  $stdObj->date = $newWord[$i]->getDate();
+                 $stdObj->aqquirement = $newWord[$i]->getAqquirement();
                  
                  $objList[] = $stdObj;
              }
@@ -35,6 +37,7 @@
          $newWord->setWord($stdObject->word);
          $newWord->setMeaning($stdObject->meaning);
          $newWord->setDate($stdObject->date);
+         $newWord->setAqquirement($stdObject->aqquirement);
          
          return $newWord;
      }

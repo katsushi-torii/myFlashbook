@@ -29,7 +29,11 @@
                         <h4>'.$word->date.'</h4>
                     </aside>
                     <article>
-                        <h4>'.$word->word.'</h4>
+                        <h4>';
+            if($word->aqquirement){
+                $htmlData .= '<i class="fa-solid fa-check"></i> ';
+            }
+            $htmlData .= ''.$word->word.'</h4>
                     </article>
                     <article>
                         <h4>'.$word->meaning.'</h4>

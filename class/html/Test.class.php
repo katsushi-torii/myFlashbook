@@ -44,8 +44,11 @@
                     <h4>Question '.$count.'</h4>
                     <h3>'.$word->meaning.'</h3>
                     <aside>
-                        <h4>'.$firstLetter.'___ ('.$letters.' letters)</h4>
-                        <span>5 points</span>
+                        <h4>'.$firstLetter.'___ ('.$letters.' letters)</h4>';
+            if($word->aqquirement){
+                $htmlRow .= '<i class="fa-solid fa-check"></i>';
+            }
+            $htmlRow .= '
                     </aside>
                     <aside>
                         <input type="text" id="question'.$count.'">
