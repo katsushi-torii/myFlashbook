@@ -5,6 +5,7 @@
         private string $word;
         private string $meaning;
         private string $date;
+        private int $aqquirement;
 
         /**
          * Get the value of id
@@ -82,6 +83,26 @@
         public function setDate($date)
         {
                 $this->date = $date;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of aqquirement
+         */ 
+        public function getAqquirement()
+        {
+                return $this->aqquirement;
+        }
+
+        /**
+         * Set the value of aqquirement
+         *
+         * @return  self
+         */ 
+        public function setAqquirement($aqquirement)
+        {
+                $this->aqquirement = $aqquirement;
 
                 return $this;
         }
