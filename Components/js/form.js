@@ -28,3 +28,10 @@ for(let i = 0; i < $("#meaningNum").val(); i++){
     `);
     $(".meanings").append(newInput);
 }
+
+let currentDate = new Date();
+let year = currentDate.getFullYear();
+let month = currentDate.getMonth();
+let day = currentDate.getDate();
+let date = year + "-" + month + "-" + day;
+$('[type="date"]').val(date);
