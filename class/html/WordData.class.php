@@ -34,6 +34,7 @@
                     <article>
                         <h4>'.$word->meaning.'</h4>
                     </article>
+                    <a href="https://www.google.com/search?q='.$word->word.'+意味" target="_blank" rel="noopener noreferrer">Google Search</a>
                 </section>
             ';
             return $htmlData;

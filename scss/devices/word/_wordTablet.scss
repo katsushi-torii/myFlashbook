@@ -6,7 +6,16 @@
             article {
                 font-size: 26px;
             }
+            > a {
+                font-size: 14px;
+                transition: .4s;
+                &:hover {
+                    background-color: white;
+                    color: $brown;
+                }
+            }
         }
+
         > aside {
             width: 50%;
             a {
@@ -30,6 +39,7 @@
 
             }
         }
+
         blockquote {
             width: 40%;
             p {
