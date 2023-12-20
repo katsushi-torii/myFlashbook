@@ -74,6 +74,10 @@
             $htmlEnd = '
                 </main>
             </body>
+            <script>
+                var meaningNum = "";
+                var meanings = "";
+            </script>
             <script src="../../Components/js/form.js" defer></script>
             </html>
             ';
