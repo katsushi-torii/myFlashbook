@@ -18,7 +18,18 @@ shuffle($wordList);
 
 $selectedWords = array_slice($wordList, 0, 10);
 
+$ids = "";
+
+foreach($selectedWords as $word){
+    if($word == $selectedWords[9]){
+        $ids .= strval($word->id);
+    }else{
+        $ids .= strval($word->id);
+        $ids .= ',';
+    }
+}
+
 echo Test::pageHead();
 echo Header::header(false);
 echo Test::quizList($selectedWords);
-echo Test::pageEnd();
+echo Test::pageEnd($ids);

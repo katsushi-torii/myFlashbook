@@ -69,9 +69,17 @@
             return $htmlRow;
         }
 
-        static function pageEnd(){
+        static function pageEnd($ids){
             $htmlEnd = '
             </body>
+            <form action="result.php" method="POST" hidden>
+                <input type="hidden" name="score" id="score">
+                <input type="hidden" name="ids" id="ids">
+                <input type="hidden" name="results" id="results">
+            </form>
+            <script>
+                var ids = "'.$ids.'";
+            </script>
             <script src="../../Components/js/test.js" defer></script>
             </html>
             ';
