@@ -34,17 +34,34 @@
             return $htmlFixedButtons;
         }
 
-        static function filter(){
-            $htmlFilter = '
+        static function keyword(){
+            $htmlKeyword = '
             <section class="filter">
                 <button class="close">✖</button>
-                <form method="GET">
+                <form method="GET" class="keyword">
                     <input type="text" name="keyword" placeholder="Enter Keyword">
+                    <input type="submit" value="Search">
+                </form>
+            ';
+            return $htmlKeyword;
+        }
+
+        static function aqquirement(){
+            $htmlAqquirement = '
+                <form method="GET" class="aqquirement">
+                    <aside>
+                        <label for="aqquirement">Aqquired: </label>
+                        <select name="aqquirement" id="aqquirement" required>
+                            <option value="">Select option</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </aside>
                     <input type="submit" value="Search">
                 </form>
             </section>
             ';
-            return $htmlFilter;
+            return $htmlAqquirement;
         }
 
         static function order($parameter){

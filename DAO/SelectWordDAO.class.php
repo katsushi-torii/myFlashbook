@@ -45,4 +45,18 @@
 
             return self::$db->resultSet();
         }
+
+        public static function getAllWordsAqquirement($aqquirement){
+
+            $sql = "SELECT * FROM words WHERE
+            aqquirement = :aqquirement";
+
+            self::$db->query($sql);
+                
+            self::$db->bind(':aqquirement', $aqquirement);
+
+            self::$db->execute();
+
+            return self::$db->resultSet();
+        }
     }
