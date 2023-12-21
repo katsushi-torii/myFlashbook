@@ -26,23 +26,36 @@
         }
         form {
             display: flex;
-            justify-content: space-between;
             row-gap: 1vh;
             width: 80%;
-            > input:nth-child(1) {
-                width: 70%;
-                background-color: white;
-            }
-            > input:nth-child(2) {
+            > [type="submit"] {
                 width: 30%;
                 background-color: $brown;
                 color: white;
             }
-            input {
+            input, select {
                 text-align: center;
                 border: 1px solid black;
                 color: black;
                 padding: 2%;
+            }
+        }
+        .keyword {
+            padding-bottom: 2vh;
+            border-bottom: 2px solid black;
+            > input:nth-child(1) {
+                width: 70%;
+                background-color: white;
+            }
+        }
+        .aqquirement {
+            display: flex;
+            padding-top: 2vh;
+            > aside {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                width: 73%;
             }
         }
     }

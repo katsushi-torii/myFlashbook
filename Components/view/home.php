@@ -13,7 +13,8 @@ SelectWordDAO::startDb();
 echo Home::pageHead();
 echo Header::header(true);
 echo Home::fixedButtons();
-echo Home::filter();
+echo Home::keyword();
+echo Home::aqquirement();
 
 $parameter = parse_url($_SERVER['REQUEST_URI'],PHP_URL_QUERY);
 if(!empty($_GET['sortBy'])){
@@ -24,45 +25,54 @@ if(!empty($_GET['sortBy'])){
 echo Home::order($parameter);
 
 
-if(!empty($_GET['keyword'])){
-    $wordList = WordConverter::convertWord(
-        SelectWordDAO::getAllWordsKeywords($_GET['keyword'])
-    );
-}elseif(empty($_GET['keyword'])){
-    $wordList = WordConverter::convertWord(
-        SelectWordDAO::getAllWords()
-    );
-};
+$wordList = WordConverter::convertWord(
+    SelectWordDAO::getAllWords()
+);
 
-if(!empty($_GET['sortBy'])){
-    $sortBy = $_GET['sortBy'];
+if(!empty($_GET)){
 
-    if($sortBy == "alpDesc"){
-        usort(
-            $wordList, function($a, $b){
-                return $a->word < $b->word ? -1 : 1;
-            }
+    if(!empty($_GET['keyword'])){
+        $wordList = WordConverter::convertWord(
+            SelectWordDAO::getAllWordsKeywords($_GET['keyword'])
         );
-    }elseif($sortBy == "alp"){
-        usort(
-            $wordList, function($a, $b){
-                return $a->word > $b->word ? -1 : 1;
-            }
-        );
-    }elseif($sortBy == "dateDesc"){
-        usort(
-            $wordList, function($a, $b){
-                return $a->date < $b->date ? -1 : 1;
-            }
-        );
-    }elseif($sortBy == "date"){
-        usort(
-            $wordList, function($a, $b){
-                return $a->date > $b->date ? -1 : 1;
-            }
+    };
+
+    if(!empty($_GET['aqquirement'])){
+        $wordList = WordConverter::convertWord(
+            SelectWordDAO::getAllWordsAqquirement($_GET['aqquirement'])
         );
     }
-};
+    
+    if(!empty($_GET['sortBy'])){
+        $sortBy = $_GET['sortBy'];
+    
+        if($sortBy == "alpDesc"){
+            usort(
+                $wordList, function($a, $b){
+                    return $a->word < $b->word ? -1 : 1;
+                }
+            );
+        }elseif($sortBy == "alp"){
+            usort(
+                $wordList, function($a, $b){
+                    return $a->word > $b->word ? -1 : 1;
+                }
+            );
+        }elseif($sortBy == "dateDesc"){
+            usort(
+                $wordList, function($a, $b){
+                    return $a->date < $b->date ? -1 : 1;
+                }
+            );
+        }elseif($sortBy == "date"){
+            usort(
+                $wordList, function($a, $b){
+                    return $a->date > $b->date ? -1 : 1;
+                }
+            );
+        }
+    };
+}
 
 echo Home::wordList($wordList);
 echo Home::pageEnd();
