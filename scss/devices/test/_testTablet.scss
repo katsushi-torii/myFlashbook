@@ -76,5 +76,14 @@
                 color: $brown;
             }
         }
+
+        li {
+            > section {
+                width: 90%;
+            }
+            aside {
+                width: 10%;
+            }
+        }
     }
 }

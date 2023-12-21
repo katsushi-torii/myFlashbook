@@ -27,6 +27,7 @@
                     <h3>Result</h3>
                     <h4>'.$score.'/10</h4>
                 </aside>
+                <p>Check if you mastered the word!</p>
             ';
             return $htmlTitle;
         }
@@ -46,13 +47,18 @@
                 <section>
                     <strong>'.$word->getWord().'</strong>
                     <span>'.$word->getMeaning().'</span>
-                </section>';
+                </section>
+                <aside>';
             if($word->getResult() == "true"){
-                $htmlRow .= '<i class="fa-solid fa-o"></i>';
+                $htmlRow .= '<i class="fa-solid fa-o"></i>
+                <form action="">
+                    <input type="hidden" name="aqquire" value="idoftheword">
+                    <input type="submit" value="✓">
+                </form>';
             }else{
                 $htmlRow .= '<i class="fa-solid fa-x"></i>';
             }
-            $htmlRow .= '</li>';
+            $htmlRow .= '</aside></li>';
             return $htmlRow;
         }
 
