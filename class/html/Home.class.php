@@ -53,8 +53,8 @@
                         <label for="aqquirement">Aqquired: </label>
                         <select name="aqquirement" id="aqquirement" required>
                             <option value="">Select option</option>
-                            <option value="1">Yes</option>
-                            <option value="0">No</option>
+                            <option value=1>Yes</option>
+                            <option value=false>No</option>
                         </select>
                     </aside>
                     <input type="submit" value="Search">
