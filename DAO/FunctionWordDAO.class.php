@@ -38,6 +38,20 @@
             return self::$db->lastInsertId();
         }
 
+        public static function editAqquirement(int $id){
+
+            $sql = "UPDATE words SET aqquirement=:aqquirement WHERE id=:id";
+
+            self::$db->query($sql);
+    
+            self::$db->bind(":id",$id);
+            self::$db->bind(":aqquirement","1");
+    
+            self::$db->execute();
+    
+            return self::$db->lastInsertId();
+        }
+
         public static function deleteWord($id){
 
             $sql = "DELETE from words WHERE id=:id";

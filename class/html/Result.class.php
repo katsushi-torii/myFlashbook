@@ -32,16 +32,16 @@
             return $htmlTitle;
         }
 
-        static function resultList($wordList){
+        static function resultList($wordList, $idArray, $resultArray, $score){
             $htmlList = '<ul>';
             foreach($wordList as $word){
-                $htmlList .= self::resultRow($word);
+                $htmlList .= self::resultRow($word, $idArray, $resultArray, $score);
             }
             $htmlList .= '</ul>';
             return $htmlList;
         }
 
-        static function resultRow($word){
+        static function resultRow($word, $idArray, $resultArray, $score){
             $htmlRow = '
             <li>
                 <section>
@@ -51,9 +51,16 @@
                 <aside>';
             if($word->getResult() == "true"){
                 $htmlRow .= '<i class="fa-solid fa-o"></i>
-                <form action="">
-                    <input type="hidden" name="aqquire" value="idoftheword">
-                    <input type="submit" value="✓">
+                <form action="#" method="POST">
+                    <input type="hidden" name="ids" value="'.$idArray.'">
+                    <input type="hidden" name="results" value="'.$resultArray.'">
+                    <input type="hidden" name="score" value="'.$score.'">
+                    <input type="hidden" name="aqquire" value='.$word->getId().'>
+                    <input type="submit" value="✓" ';
+                if($word->getAqquirement() == 1){
+                    $htmlRow .= 'class="red"';
+                }
+                $htmlRow .= '>
                 </form>';
             }else{
                 $htmlRow .= '<i class="fa-solid fa-x"></i>';
