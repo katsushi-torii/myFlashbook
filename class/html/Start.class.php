@@ -23,7 +23,7 @@
             $htmlMain = '
                 <main class="start">
                     <section>
-                        <a href="test">TestA</a>
+                        <a href="testA.php">TestA</a>
                         <a href="testB.php">TestB</a>
                     </section>
                     <article>

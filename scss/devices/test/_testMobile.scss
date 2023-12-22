@@ -161,6 +161,10 @@
             border-radius: 10px;
         }
 
+        > p {
+            font-weight: 600;
+        }
+
         > ul {
             display: flex;
             flex-direction: column;
@@ -179,7 +183,7 @@
             border-bottom: 1px solid $brown;
 
             > section {
-                width: 90%;
+                width: 80%;
                 display: flex;
                 flex-direction: column;
                 text-align: center;
@@ -192,9 +196,22 @@
                 text-overflow: ellipsis;
 
             }
+
+            aside {
+                display: flex;
+                justify-content: center;
+                column-gap: 1vh;
+                align-items: center;
+                width: 20%;
+
+                input {
+                    background-color: whitesmoke;
+                    color: black;
+                    border: 1px solid black;
+                }
+            }
             
             i {
-                width: 10%;
                 text-align: center;
             }
         }
@@ -209,6 +226,11 @@
             padding: 2%;
             font-weight: 600;
             border: 2px solid $brown;
+        }
+
+        .red {
+            color: red;
+            font-weight: 600;
         }
     }
 }

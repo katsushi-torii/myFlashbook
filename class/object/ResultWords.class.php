@@ -4,6 +4,7 @@
         private int $id;
         private string $word;
         private string $meaning;
+        private string $aqquirement;
         private string $result;
 
         /**
@@ -62,6 +63,27 @@
         public function setMeaning($meaning)
         {
                 $this->meaning = $meaning;
+
+                return $this;
+        }
+        
+
+        /**
+         * Get the value of aqquirement
+         */ 
+        public function getAqquirement()
+        {
+                return $this->aqquirement;
+        }
+
+        /**
+         * Set the value of aqquirement
+         *
+         * @return  self
+         */ 
+        public function setAqquirement($aqquirement)
+        {
+                $this->aqquirement = $aqquirement;
 
                 return $this;
         }

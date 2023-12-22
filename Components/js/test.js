@@ -10,14 +10,14 @@ for(let i = 1; i < 11; i++){
     $(`.check${i}`).click((e) => {
         console.log(typedAnswer, correctAnswer);
         if(correctAnswer == typedAnswer){
-            $(`.quiz${i} i`).addClass("fa-solid fa-thumbs-up");
+            $(`.quiz${i} .answer i`).addClass("fa-solid fa-thumbs-up");
             $(`.quiz${i} .answer`).css("display", "flex");
             count += 1;
             results.push(true);
         }else if(typedAnswer == ""){
             $(`.quiz${i} p`).show();
         }else{
-            $(`.quiz${i} i`).addClass("fa-solid fa-x");
+            $(`.quiz${i} .answer i`).addClass("fa-solid fa-x");
             $(`.quiz${i} .answer`).css("display", "flex");
             results.push(false);
         }

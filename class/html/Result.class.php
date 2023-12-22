@@ -27,32 +27,45 @@
                     <h3>Result</h3>
                     <h4>'.$score.'/10</h4>
                 </aside>
+                <p>Check if you mastered the word!</p>
             ';
             return $htmlTitle;
         }
 
-        static function resultList($wordList){
+        static function resultList($wordList, $idArray, $resultArray, $score){
             $htmlList = '<ul>';
             foreach($wordList as $word){
-                $htmlList .= self::resultRow($word);
+                $htmlList .= self::resultRow($word, $idArray, $resultArray, $score);
             }
             $htmlList .= '</ul>';
             return $htmlList;
         }
 
-        static function resultRow($word){
+        static function resultRow($word, $idArray, $resultArray, $score){
             $htmlRow = '
             <li>
                 <section>
                     <strong>'.$word->getWord().'</strong>
                     <span>'.$word->getMeaning().'</span>
-                </section>';
+                </section>
+                <aside>';
             if($word->getResult() == "true"){
-                $htmlRow .= '<i class="fa-solid fa-o"></i>';
+                $htmlRow .= '<i class="fa-solid fa-o"></i>
+                <form action="#" method="POST">
+                    <input type="hidden" name="ids" value="'.$idArray.'">
+                    <input type="hidden" name="results" value="'.$resultArray.'">
+                    <input type="hidden" name="score" value="'.$score.'">
+                    <input type="hidden" name="aqquire" value='.$word->getId().'>
+                    <input type="submit" value="✓" ';
+                if($word->getAqquirement() == 1){
+                    $htmlRow .= 'class="red"';
+                }
+                $htmlRow .= '>
+                </form>';
             }else{
                 $htmlRow .= '<i class="fa-solid fa-x"></i>';
             }
-            $htmlRow .= '</li>';
+            $htmlRow .= '</aside></li>';
             return $htmlRow;
         }
 
