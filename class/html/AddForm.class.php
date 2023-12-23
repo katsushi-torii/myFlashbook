@@ -51,7 +51,7 @@
                     </aside>
                     <aside>
                         <label for="date">Current date:</label>
-                        <input type="date" name="date" id="date" required>
+                        <input type="date" name="date" id="date" class="addDate" required>
                     </aside>
                     <button onsubmit="">Add</button>
                 </form>
