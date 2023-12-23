@@ -51,17 +51,25 @@
                 <aside>';
             if($word->getResult() == "true"){
                 $htmlRow .= '<i class="fa-solid fa-o"></i>
-                <form action="#" method="POST">
-                    <input type="hidden" name="ids" value="'.$idArray.'">
-                    <input type="hidden" name="results" value="'.$resultArray.'">
-                    <input type="hidden" name="score" value="'.$score.'">
-                    <input type="hidden" name="aqquire" value='.$word->getId().'>
-                    <input type="submit" value="✓" ';
+                ';
                 if($word->getAqquirement() == 1){
-                    $htmlRow .= 'class="red"';
+                    $htmlRow .= '<form action="#" method="POST">
+                        <input type="hidden" name="ids" value="'.$idArray.'">
+                        <input type="hidden" name="results" value="'.$resultArray.'">
+                        <input type="hidden" name="score" value="'.$score.'">
+                        <input type="hidden" name="aqquireReset" value='.$word->getId().'>
+                        <button type="submit" style="color: red;">✓</button>
+                    </form>';
+                }else{
+                    $htmlRow .= '<form action="#" method="POST">
+                        <input type="hidden" name="ids" value="'.$idArray.'">
+                        <input type="hidden" name="results" value="'.$resultArray.'">
+                        <input type="hidden" name="score" value="'.$score.'">
+                        <input type="hidden" name="aqquire" value='.$word->getId().'>
+                        <button type="submit">✓</button>
+                    </form>';
                 }
-                $htmlRow .= '>
-                </form>';
+                $htmlRow .= '';
             }else{
                 $htmlRow .= '<i class="fa-solid fa-x"></i>';
             }
@@ -74,6 +82,7 @@
                     <a href="home.php">Go Home</a>
                 </main>
             </body>
+            <script src="../../Components/js/result.js" defer></script>
             </html>
             ';
             return $htmlEnd;
