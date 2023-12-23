@@ -10,20 +10,26 @@ for(let i = 1; i < 6; i++){
 $('#meaningNum').on('change', function(){
     //reset the input
     $('.meanings input').remove();
-    
-    for(let i = 0; i < $('#meaningNum').val(); i++){
+
+    for(let i = 0; i < $("#meaningNum").val(); i++){
         let newInput = $(`     
-            <input type="text" name="meaning${i}" id="meaning${i}">
+        <input type="text" name="meaning${i}" id="meaning${i}" value="" required>
         `);
-        $('.meanings').append(newInput);
+        if(i < meaningsArray.length){
+            newInput = $(`     
+            <input type="text" name="meaning${i}" id="meaning${i}" value="${meaningsArray[i]}" required>
+            `);
+        }
+        $(".meanings").append(newInput);
     }
 })
 
 //number of meanings and each meanings will be displayed on the form for the default value
 $("#meaningNum option").eq(meaningNum).prop("selected","selected");
+
 const meaningsArray = meanings.split(", ");
 for(let i = 0; i < $("#meaningNum").val(); i++){
-    let newInput = $(`     
+    newInput = $(`     
     <input type="text" name="meaning${i}" id="meaning${i}" value="${meaningsArray[i]}" required>
     `);
     $(".meanings").append(newInput);
@@ -31,7 +37,7 @@ for(let i = 0; i < $("#meaningNum").val(); i++){
 
 let currentDate = new Date();
 let year = currentDate.getFullYear();
-let month = currentDate.getMonth();
+let month = currentDate.getMonth() + 1;
 let day = currentDate.getDate();
 let date = year + "-" + month + "-" + day;
-$('[type="date"]').val(date);
+$('.addDate').val(date);
