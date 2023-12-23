@@ -31,7 +31,10 @@ if(!empty($_POST)){
     }
 
     if(!empty($_POST['aqquire'])){
-        FunctionWordDAO::editAqquirement($_POST['aqquire']);
+        FunctionWordDAO::editAqquirement($_POST['aqquire'], 1);
+    }
+    if(!empty($_POST['aqquireReset'])){
+        FunctionWordDAO::editAqquirement($_POST['aqquireReset'], 0);
     }
 }
 

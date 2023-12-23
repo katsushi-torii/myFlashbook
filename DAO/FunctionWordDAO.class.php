@@ -38,14 +38,14 @@
             return self::$db->lastInsertId();
         }
 
-        public static function editAqquirement(int $id){
+        public static function editAqquirement(int $id, $bool){
 
             $sql = "UPDATE words SET aqquirement=:aqquirement WHERE id=:id";
 
             self::$db->query($sql);
     
             self::$db->bind(":id",$id);
-            self::$db->bind(":aqquirement","1");
+            self::$db->bind(":aqquirement",$bool);
     
             self::$db->execute();
     

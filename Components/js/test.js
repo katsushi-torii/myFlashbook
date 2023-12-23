@@ -8,9 +8,9 @@ for(let i = 1; i < 11; i++){
     })
     let correctAnswer = $(`.quiz${i} strong`).eq(0).html();
     $(`.check${i}`).click((e) => {
-        console.log(typedAnswer, correctAnswer);
+        $(`.quiz${i} p`).hide();
         if(correctAnswer == typedAnswer){
-            $(`.quiz${i} .answer i`).addClass("fa-solid fa-thumbs-up");
+            $(`.quiz${i} .answer i`).addClass("fa-solid fa-o");
             $(`.quiz${i} .answer`).css("display", "flex");
             count += 1;
             results.push(true);
