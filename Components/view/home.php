@@ -10,6 +10,11 @@ require_once("../../class/html/Home.class.php");
 
 SelectWordDAO::startDb();
 
+$page = 1;
+if(!empty($_GET['page'])){
+    $page = $_GET['page'];
+}
+
 echo Home::pageHead();
 echo Header::header(true);
 echo Home::fixedButtons();
@@ -24,22 +29,21 @@ if(!empty($_GET['sortBy'])){
 
 echo Home::order($parameter);
 
-
 $wordList = WordConverter::convertWord(
-    SelectWordDAO::getAllWords()
+    SelectWordDAO::getAllWords($page)
 );
 
 if(!empty($_GET)){
 
     if(!empty($_GET['keyword'])){
         $wordList = WordConverter::convertWord(
-            SelectWordDAO::getAllWordsKeywords($_GET['keyword'])
+            SelectWordDAO::getAllWordsKeywords($_GET['keyword'], $page)
         );
     };
 
     if(!empty($_GET['aqquirement'])){
         $wordList = WordConverter::convertWord(
-            SelectWordDAO::getAllWordsAqquirement($_GET['aqquirement'])
+            SelectWordDAO::getAllWordsAqquirement($_GET['aqquirement'], $page)
         );
     }
     

@@ -28,7 +28,7 @@
                     <button class="search">Search</button>
                     <a href="addForm.php">Add</a>
                     <a href="start.php">Test</a>
-                    <a class="toTop">↑</a>
+                    <a href="#" class="toTop">↑</a>
                 </aside>
             ';
             return $htmlFixedButtons;

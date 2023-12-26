@@ -7,9 +7,11 @@
             self::$db = new PDOAgent('Words');
         }
         
-        public static function getAllWords(){
+        public static function getAllWords(int $page){
             
-            $sql = "SELECT * FROM words";
+            $limit = ($page - 1)* 10;
+
+            $sql = "SELECT * FROM words LIMIT $limit, 10";
     
             self::$db->query($sql);
     
@@ -18,7 +20,7 @@
             return self::$db->resultSet();
         }
 
-        public static function getWordById( int $id ){
+        public static function getWordById(int $id){
 
             $sql = "SELECT * FROM words WHERE id=:id";
     
@@ -31,11 +33,14 @@
             return self::$db->singleResult();
         }
 
-        public static function getAllWordsKeywords($keyword){
+        public static function getAllWordsKeywords($keyword, int $page){
+
+            $limit = ($page - 1)* 10;
 
             $sql = "SELECT * FROM words WHERE
             word LIKE :keyword
-            OR meaning LIKE :keyword";
+            OR meaning LIKE :keyword
+            LIMIT $limit, 10";
 
             self::$db->query($sql);
                 
@@ -46,10 +51,13 @@
             return self::$db->resultSet();
         }
 
-        public static function getAllWordsAqquirement($aqquirement){
+        public static function getAllWordsAqquirement($aqquirement, int $page){
+
+            $limit = ($page - 1)* 10;
 
             $sql = "SELECT * FROM words WHERE
-            aqquirement = :aqquirement";
+            aqquirement = :aqquirement
+            LIMIT $limit, 10";
 
             self::$db->query($sql);
                 
