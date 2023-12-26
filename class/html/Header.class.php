@@ -4,7 +4,7 @@
         static function header($booleon){
             $htmlHeader = '
             <header>
-                <h1>MyFlashbook</h1>
+                <h1><a href="home.php">MyFlashbook</a></h1>
                 <nav>';
             if($booleon){
                 $htmlHeader .= '
