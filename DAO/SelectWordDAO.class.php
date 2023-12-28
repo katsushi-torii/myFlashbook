@@ -11,7 +11,10 @@
             
             $limit = ($page - 1)* 10;
 
-            $sql = "SELECT * FROM words LIMIT $limit, 10";
+            $sql = "SELECT * FROM words";
+            if($page != 0){
+                $sql = "SELECT * FROM words LIMIT $limit, 10";
+            }
     
             self::$db->query($sql);
     
@@ -37,10 +40,16 @@
 
             $limit = ($page - 1)* 10;
 
-            $sql = "SELECT * FROM words WHERE
+            $sql  = "SELECT * FROM words WHERE
             word LIKE :keyword
-            OR meaning LIKE :keyword
-            LIMIT $limit, 10";
+            OR meaning LIKE :keyword";
+
+            if($page != 0){
+                $sql = "SELECT * FROM words WHERE
+                word LIKE :keyword
+                OR meaning LIKE :keyword
+                LIMIT $limit, 10";
+            }
 
             self::$db->query($sql);
                 
@@ -56,8 +65,13 @@
             $limit = ($page - 1)* 10;
 
             $sql = "SELECT * FROM words WHERE
-            aqquirement = :aqquirement
-            LIMIT $limit, 10";
+            aqquirement = :aqquirement";
+            
+            if($page != 0){
+                $sql = "SELECT * FROM words WHERE
+                aqquirement = :aqquirement
+                LIMIT $limit, 10";
+            }
 
             self::$db->query($sql);
                 
@@ -68,3 +82,4 @@
             return self::$db->resultSet();
         }
     }
+    
