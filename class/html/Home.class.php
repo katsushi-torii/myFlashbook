@@ -28,54 +28,45 @@
                     <button class="search">Search</button>
                     <a href="addForm.php">Add</a>
                     <a href="start.php">Test</a>
-                    <a class="toTop">↑</a>
+                    <a href="#" class="toTop">↑</a>
                 </aside>
             ';
             return $htmlFixedButtons;
         }
 
-        static function keyword(){
-            $htmlKeyword = '
+        static function form(){
+            $htmlForm = '
             <section class="filter">
                 <button class="close">✖</button>
-                <form method="GET" class="keyword">
-                    <input type="text" name="keyword" placeholder="Enter Keyword">
-                    <input type="submit" value="Search">
-                </form>
-            ';
-            return $htmlKeyword;
-        }
-
-        static function aqquirement(){
-            $htmlAqquirement = '
-                <form method="GET" class="aqquirement">
+                <form method="GET">
+                    <aside>
+                        <input type="text" name="keyword" placeholder="Enter Keyword">
+                    </aside>
                     <aside>
                         <label for="aqquirement">Aqquired: </label>
-                        <select name="aqquirement" id="aqquirement" required>
-                            <option value="">Select option</option>
-                            <option value=1>Yes</option>
-                            <option value=false>No</option>
+                        <select name="aqquirement" id="aqquirement">
+                            <option value="" selected>Select option</option>
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                    </aside>
+                    <aside>
+                        <label for="sortBy">Order: </label>
+                        <select name="sortBy" id="sort">
+                            <option value="" selected>Select option</option>
+                            <option value="alp">A↓</option>
+                            <option value="alpDesc">Z↓</option>
+                            <option value="dateDesc">Date↓</option>
+                            <option value="date">Date↑</option>
                         </select>
                     </aside>
                     <input type="submit" value="Search">
                 </form>
+                <a href="?">Reset</a>
             </section>
-            ';
-            return $htmlAqquirement;
-        }
-
-        static function order($parameter){
-            $htmlOrder = '
             <article>
-                <ul class="order">
-                    <li><a href="?" class="reset">Reset</a></li>
-                    <li><a href="?'.$parameter.'&sortBy=alpDesc">A↓</a></li>
-                    <li><a href="?'.$parameter.'&sortBy=alp">Z↓</a></li>
-                    <li><a href="?'.$parameter.'&sortBy=dateDesc">Date↓</a></li>
-                    <li><a href="?'.$parameter.'&sortBy=date">Date↑</a></li>
-                </ul>
             ';
-            return $htmlOrder;
+            return $htmlForm;
         }
 
         static function wordList($wordList){
@@ -83,9 +74,7 @@
             foreach($wordList as $word){
                 $htmlWordList .= self::wordRow($word);
             }
-            $htmlWordList .= '
-                </ul>
-            </article>';
+            $htmlWordList .= '</ul>';
             return $htmlWordList;
         }
 
@@ -108,8 +97,21 @@
             return $htmlRow;
         }
 
+        static function pageButtons($parameter, $pageAmount, $page){
+            $htmlPageButton = '<aside class="pages">';
+            for($i = 1; $i <= $pageAmount; $i++){
+                if($i == $page){
+                    $htmlPageButton .= '<h4>'.$i.'</h4>';
+                }else{
+                    $htmlPageButton .= '<a href="?'.$parameter.'&page='.$i.'">'.$i.'</a>';
+                }
+            }   
+            $htmlPageButton .= '</aside>';
+            return $htmlPageButton;
+        }
+
         static function pageEnd(){
-            $htmlEnd = '
+            $htmlEnd = '</article>
                 </main>
             </body>
             <script src="../../Components/js/home.js" defer></script>

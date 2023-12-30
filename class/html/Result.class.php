@@ -58,7 +58,7 @@
                         <input type="hidden" name="results" value="'.$resultArray.'">
                         <input type="hidden" name="score" value="'.$score.'">
                         <input type="hidden" name="aqquireReset" value='.$word->getId().'>
-                        <button type="submit" style="color: red;">✓</button>
+                        <button type="submit" style="color: green;">✓</button>
                     </form>';
                 }else{
                     $htmlRow .= '<form action="#" method="POST">

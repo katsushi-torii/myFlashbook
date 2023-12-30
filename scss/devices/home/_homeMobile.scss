@@ -8,6 +8,7 @@
             display: flex;
             flex-direction: column;
             row-gap: 3vh;
+            padding-top: 3vh;
         }
     }
     .filter {
@@ -26,53 +27,46 @@
         }
         form {
             display: flex;
+            flex-direction: column;
+            align-items: center;
             row-gap: 1vh;
-            width: 80%;
-            > [type="submit"] {
-                width: 30%;
-                background-color: $brown;
-                color: white;
+            width: 90%;
+            padding-bottom: 2vh;
+            > aside {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
             }
-            input, select {
+            input {
                 text-align: center;
                 border: 1px solid black;
                 color: black;
                 padding: 2%;
+                width: 100%;
+            }
+            select {
+                text-align: center;
+                border: 1px solid black;
+                color: black;
+                padding: 2%;
+                width: 65%;
+            }
+            label {
+                width: 35%;
+                text-align: center;
+            }
+            > [type="submit"] {
+                background-color: $brown;
+                color: white;
+                font-weight: 600;
             }
         }
-        .keyword {
-            padding-bottom: 2vh;
-            border-bottom: 2px solid black;
-            > input:nth-child(1) {
-                width: 70%;
-                background-color: white;
-            }
-        }
-        .aqquirement {
-            display: flex;
-            padding-top: 2vh;
-            > aside {
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-                width: 73%;
-            }
-        }
-    }
-    .order {
-        display: flex;
-        justify-content: space-around;
-        padding-top: 3vh;
-        a {
-            border: 1px solid black;
-            background-color: $brown;
-            width: 100%;
-            border-radius: 15px;
-            padding: 1vh;
+        > a {
             color: white;
-        }
-        .reset {
             background-color: black;
+            border: 1px solid black;
+            padding: 2%;
         }
     }
     .list {
@@ -94,7 +88,7 @@
             display: flex;
         }
         i {
-            color: red;
+            color: green;
             font-size: larger;
         }
         strong {
@@ -121,6 +115,21 @@
             color: white;
             padding: 5%;
             border: 1px solid $brown;
+        }
+    }
+    .pages {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 2vh;
+        color: $brown;
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: underline;
+            font-weight: 600;
+            color: $brown;
         }
     }
     //for fixed buttons

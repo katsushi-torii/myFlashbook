@@ -10,8 +10,15 @@ require_once("../../class/html/Test.class.php");
 
 SelectWordDAO::startDb();
 
+class Filter {
+    public $keyword = "";
+    public $aqquirement = false;
+    public $order = "";
+};
+$values = new Filter;
+
 $wordList = WordConverter::convertWord(
-    SelectWordDAO::getAllWordsAqquirement(0)
+    SelectWordDAO::getAllWordsFiltered($values, 0)
 );
 
 shuffle($wordList);

@@ -11,7 +11,7 @@ require_once("../../class/html/Test.class.php");
 SelectWordDAO::startDb();
 
 $wordList = WordConverter::convertWord(
-    SelectWordDAO::getAllWords()
+    SelectWordDAO::getAllWords(0)
 );
 
 shuffle($wordList);

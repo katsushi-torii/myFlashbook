@@ -10,69 +10,65 @@ require_once("../../class/html/Home.class.php");
 
 SelectWordDAO::startDb();
 
+$page = 1;
+$parameter = parse_url($_SERVER['REQUEST_URI'],PHP_URL_QUERY);
+if(!empty($_GET['page'])){
+    $page = $_GET['page'];
+    //exclude page part
+    $parameter = explode("&page", $parameter)[0];
+}
+
+$pageAmount = ceil(count(WordConverter::convertWord(
+    SelectWordDAO::getAllWords(0)
+))/10);
+
 echo Home::pageHead();
 echo Header::header(true);
 echo Home::fixedButtons();
-echo Home::keyword();
-echo Home::aqquirement();
-
-$parameter = parse_url($_SERVER['REQUEST_URI'],PHP_URL_QUERY);
-if(!empty($_GET['sortBy'])){
-    //exclude sortby part
-    $parameter = explode("&sortBy", $parameter)[0];
-};
-
-echo Home::order($parameter);
-
+echo Home::form();
 
 $wordList = WordConverter::convertWord(
-    SelectWordDAO::getAllWords()
+    SelectWordDAO::getAllWords($page)
 );
 
 if(!empty($_GET)){
-
-    if(!empty($_GET['keyword'])){
-        $wordList = WordConverter::convertWord(
-            SelectWordDAO::getAllWordsKeywords($_GET['keyword'])
-        );
+    
+    class Filter {
+        public $keyword = "";
+        public $aqquirement = "";
+        public $order = "";
     };
-
-    if(!empty($_GET['aqquirement'])){
+    $values = new Filter;
+    
+    if(!empty($_GET['keyword'])){
+        $values->keyword = $_GET['keyword'];
         $wordList = WordConverter::convertWord(
-            SelectWordDAO::getAllWordsAqquirement($_GET['aqquirement'])
+            SelectWordDAO::getAllWordsFiltered($values, $page)
+        );
+        $pageAmount = ceil(count(WordConverter::convertWord(
+            SelectWordDAO::getAllWordsFiltered($values, 0)
+        ))/10);
+    };
+    
+    if(!empty($_GET['aqquirement'])){
+        $values->aqquirement = $_GET['aqquirement'];
+        $wordList = WordConverter::convertWord(
+            SelectWordDAO::getAllWordsFiltered($values, $page)
+        );
+        $pageAmount = ceil(count(WordConverter::convertWord(
+            SelectWordDAO::getAllWordsFiltered($values, 0)
+        ))/10);
+    }
+
+    if(!empty($_GET['sortBy'])){
+        $values->order = $_GET['sortBy'];
+        $wordList = WordConverter::convertWord(
+            SelectWordDAO::getAllWordsFiltered($values, $page)
         );
     }
-    
-    if(!empty($_GET['sortBy'])){
-        $sortBy = $_GET['sortBy'];
-    
-        if($sortBy == "alpDesc"){
-            usort(
-                $wordList, function($a, $b){
-                    return $a->word < $b->word ? -1 : 1;
-                }
-            );
-        }elseif($sortBy == "alp"){
-            usort(
-                $wordList, function($a, $b){
-                    return $a->word > $b->word ? -1 : 1;
-                }
-            );
-        }elseif($sortBy == "dateDesc"){
-            usort(
-                $wordList, function($a, $b){
-                    return $a->date < $b->date ? -1 : 1;
-                }
-            );
-        }elseif($sortBy == "date"){
-            usort(
-                $wordList, function($a, $b){
-                    return $a->date > $b->date ? -1 : 1;
-                }
-            );
-        }
-    };
 }
 
+echo Home::pageButtons($parameter, $pageAmount, $page);
 echo Home::wordList($wordList);
+echo Home::pageButtons($parameter, $pageAmount, $page);
 echo Home::pageEnd();
