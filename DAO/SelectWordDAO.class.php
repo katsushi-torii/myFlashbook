@@ -9,12 +9,13 @@
         
         public static function getAllWords(int $page){
             
-            $limit = ($page - 1)* 10;
-
-            $sql = "SELECT * FROM words";
+            $pageNum = ($page - 1)* 10;
+            $limit = "";
             if($page != 0){
-                $sql = "SELECT * FROM words LIMIT $limit, 10";
+                $limit = "LIMIT $pageNum, 10";
             }
+
+            $sql = "SELECT * FROM words $limit";
     
             self::$db->query($sql);
     
@@ -36,46 +37,54 @@
             return self::$db->singleResult();
         }
 
-        public static function getAllWordsKeywords($keyword, int $page){
+        public static function getAllWordsFiltered($values, $page){
 
-            $limit = ($page - 1)* 10;
+            $keyword = "";
+            $aqquirement = "";
+            $order = "";
+            $count = 0;
 
-            $sql  = "SELECT * FROM words WHERE
-            word LIKE :keyword
-            OR meaning LIKE :keyword";
+            $typedKeyword = $values->keyword;
+            if($typedKeyword != ""){
+                $count += 1;
+                $keyword = "(word LIKE '%{$typedKeyword}%' OR meaning LIKE '%{$typedKeyword}%')";
+            };
 
-            if($page != 0){
-                $sql = "SELECT * FROM words WHERE
-                word LIKE :keyword
-                OR meaning LIKE :keyword
-                LIMIT $limit, 10";
-            }
-
-            self::$db->query($sql);
-                
-            self::$db->bind(':keyword', "%{$keyword}%");
-
-            self::$db->execute();
-
-            return self::$db->resultSet();
-        }
-
-        public static function getAllWordsAqquirement($aqquirement, int $page){
-
-            $limit = ($page - 1)* 10;
-
-            $sql = "SELECT * FROM words WHERE
-            aqquirement = :aqquirement";
+            $selectedAqquirement = $values->aqquirement;
+            if($selectedAqquirement != ""){
+                $count += 1;
+                if($count == 1){
+                    $aqquirement = "aqquirement = {$selectedAqquirement}";
+                }else{
+                    $aqquirement = "AND aqquirement = {$selectedAqquirement}";
+                };
+            };
             
+            $selectedOrder = $values->order;
+            if($selectedOrder == "alp"){
+                $order = "ORDER BY word";
+            }elseif($selectedOrder == "alpDesc"){
+                $order = "ORDER BY word DESC";
+            }elseif($selectedOrder == "dateDesc"){
+                $order = "ORDER BY date DESC";
+            }elseif($selectedOrder == "date"){
+                $order = "ORDER BY date";
+            }
+            
+            $where = "";
+            if($count > 0){
+                $where = "WHERE";
+            };
+
+            $pageNum = ($page - 1)* 10;
+            $limit = "";
             if($page != 0){
-                $sql = "SELECT * FROM words WHERE
-                aqquirement = :aqquirement
-                LIMIT $limit, 10";
+                $limit = "LIMIT $pageNum, 10";
             }
 
+            $sql = "SELECT * FROM words $where $keyword $aqquirement $order $limit";
+            
             self::$db->query($sql);
-                
-            self::$db->bind(':aqquirement', $aqquirement);
 
             self::$db->execute();
 

@@ -32,23 +32,39 @@ $wordList = WordConverter::convertWord(
 );
 
 if(!empty($_GET)){
-
+    
+    class Filter {
+        public $keyword = "";
+        public $aqquirement = "";
+        public $order = "";
+    };
+    $values = new Filter;
+    
     if(!empty($_GET['keyword'])){
+        $values->keyword = $_GET['keyword'];
         $wordList = WordConverter::convertWord(
-            SelectWordDAO::getAllWordsKeywords($_GET['keyword'], $page)
+            SelectWordDAO::getAllWordsFiltered($values, $page)
         );
         $pageAmount = ceil(count(WordConverter::convertWord(
-            SelectWordDAO::getAllWordsKeywords($_GET['keyword'], 0)
+            SelectWordDAO::getAllWordsFiltered($values, 0)
         ))/10);
     };
     
     if(!empty($_GET['aqquirement'])){
+        $values->aqquirement = $_GET['aqquirement'];
         $wordList = WordConverter::convertWord(
-            SelectWordDAO::getAllWordsAqquirement($_GET['aqquirement'], $page)
+            SelectWordDAO::getAllWordsFiltered($values, $page)
         );
         $pageAmount = ceil(count(WordConverter::convertWord(
-            SelectWordDAO::getAllWordsAqquirement($_GET['aqquirement'], 0)
+            SelectWordDAO::getAllWordsFiltered($values, 0)
         ))/10);
+    }
+
+    if(!empty($_GET['sortBy'])){
+        $values->order = $_GET['sortBy'];
+        $wordList = WordConverter::convertWord(
+            SelectWordDAO::getAllWordsFiltered($values, $page)
+        );
     }
 }
 

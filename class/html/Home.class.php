@@ -51,11 +51,11 @@
                         </select>
                     </aside>
                     <aside>
-                        <label for="sort">Order: </label>
-                        <select name="sort" id="sort">
+                        <label for="sortBy">Order: </label>
+                        <select name="sortBy" id="sort">
                             <option value="" selected>Select option</option>
-                            <option value="alpDesc">A↓</option>
-                            <option value="alp">Z↓</option>
+                            <option value="alp">A↓</option>
+                            <option value="alpDesc">Z↓</option>
                             <option value="dateDesc">Date↓</option>
                             <option value="date">Date↑</option>
                         </select>
