@@ -45,15 +45,15 @@
                     <aside>
                         <label for="aqquirement">Aqquired: </label>
                         <select name="aqquirement" id="aqquirement">
-                            <option value="" selected>Select option</option>
+                            <option value="" selected>Not set</option>
                             <option value="true">Yes</option>
                             <option value="false">No</option>
                         </select>
                     </aside>
                     <aside>
-                        <label for="sortBy">Order: </label>
+                        <label for="sort">Order: </label>
                         <select name="sortBy" id="sort">
-                            <option value="" selected>Select option</option>
+                            <option value="" selected>Not set</option>
                             <option value="alp">A↓</option>
                             <option value="alpDesc">Z↓</option>
                             <option value="dateDesc">Date↓</option>
@@ -110,10 +110,15 @@
             return $htmlPageButton;
         }
 
-        static function pageEnd(){
+        static function pageEnd($values){
             $htmlEnd = '</article>
                 </main>
             </body>
+            <script>
+                var keyword = "'.$values->keyword.'";
+                var aqquirement = "'.$values->aqquirement.'";
+                var order = "'.$values->order.'";
+            </script>
             <script src="../../Components/js/home.js" defer></script>
             </html>
             ';
