@@ -31,15 +31,14 @@ $wordList = WordConverter::convertWord(
     SelectWordDAO::getAllWords($page)
 );
 
+class Filter {
+    public $keyword = "";
+    public $aqquirement = "";
+    public $order = "";
+};
+$values = new Filter;
+
 if(!empty($_GET)){
-    
-    class Filter {
-        public $keyword = "";
-        public $aqquirement = "";
-        public $order = "";
-    };
-    $values = new Filter;
-    
     if(!empty($_GET['keyword'])){
         $values->keyword = $_GET['keyword'];
         $wordList = WordConverter::convertWord(
@@ -71,4 +70,4 @@ if(!empty($_GET)){
 echo Home::pageButtons($parameter, $pageAmount, $page);
 echo Home::wordList($wordList);
 echo Home::pageButtons($parameter, $pageAmount, $page);
-echo Home::pageEnd();
+echo Home::pageEnd($values);
