@@ -38,6 +38,12 @@ for(let i = 0; i < $("#meaningNum").val(); i++){
 let currentDate = new Date();
 let year = currentDate.getFullYear();
 let month = currentDate.getMonth() + 1;
+if(month < 10){
+    month = "0" + month;
+}
 let day = currentDate.getDate();
+if(day < 10){
+    day = "0" + day;
+}
 let date = year + "-" + month + "-" + day;
 $('.addDate').val(date);
