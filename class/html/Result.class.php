@@ -58,7 +58,7 @@
                         <input type="hidden" name="results" value="'.$resultArray.'">
                         <input type="hidden" name="score" value="'.$score.'">
                         <input type="hidden" name="aqquireReset" value='.$word->getId().'>
-                        <button type="submit" style="color: green;">✓</button>
+                        <button type="submit" style="color: green; font-weight: 600;">✓</button>
                     </form>';
                 }else{
                     $htmlRow .= '<form action="#" method="POST">
@@ -66,7 +66,7 @@
                         <input type="hidden" name="results" value="'.$resultArray.'">
                         <input type="hidden" name="score" value="'.$score.'">
                         <input type="hidden" name="aqquire" value='.$word->getId().'>
-                        <button type="submit">✓</button>
+                        <button type="submit" style="background-color: whitesmoke; font-weight: 600;">✓</button>
                     </form>';
                 }
                 $htmlRow .= '';
