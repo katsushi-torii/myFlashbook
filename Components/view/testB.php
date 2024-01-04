@@ -32,4 +32,4 @@ foreach($selectedWords as $word){
 echo Test::pageHead();
 echo Header::header(false);
 echo Test::quizList($selectedWords);
-echo Test::pageEnd($ids);
+echo Test::pageEnd($ids, $selectedWords);
