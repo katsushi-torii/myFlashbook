@@ -44,7 +44,7 @@
                     <h4>Question '.$count.'</h4>
                     <h3>'.$word->meaning.'</h3>
                     <aside>
-                        <h4>'.$firstLetter.'___ ('.$letters.' letters)</h4>';
+                        <h4></h4>';
             if($word->aqquirement){
                 $htmlRow .= '<i class="fa-solid fa-check"></i>';
             }
@@ -72,20 +72,40 @@
             return $htmlRow;
         }
 
-        static function pageEnd($ids){
+        static function pageEnd($ids, array $selectedWords){
             $htmlEnd = '
-            </body>
             <form action="result.php" method="POST" hidden>
                 <input type="hidden" name="score" id="score">
                 <input type="hidden" name="ids" id="ids">
                 <input type="hidden" name="results" id="results">
             </form>
+            </body>
             <script>
                 var ids = "'.$ids.'";
+                let selectedWords = [];
+                let objectPass = {};';
+            foreach($selectedWords as $word){
+                $htmlEnd .= self::arrayPass($word);
+            }
+            $htmlEnd .= '
             </script>
             <script src="../../Components/js/test.js" defer></script>
             </html>
             ';
             return $htmlEnd;
+        }
+
+        static function arrayPass($word){
+            $htmlArrayPass = '
+            objectPass = {
+                "id": '.$word->id.',
+                "word": "'.$word->word.'",
+                "meaning": "'.$word->meaning.'",
+                "date": '.$word->date.',
+                "aqquirement": '.$word->aqquirement.'
+            };
+            selectedWords.push(objectPass);
+            ';
+            return $htmlArrayPass;
         }
     }

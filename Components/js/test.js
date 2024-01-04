@@ -9,7 +9,7 @@ for(let i = 1; i < 11; i++){
     let correctAnswer = $(`.quiz${i} strong`).eq(0).html();
     $(`.check${i}`).click((e) => {
         $(`.quiz${i} p`).hide();
-        if(correctAnswer == typedAnswer){
+        if(correctAnswer == typedAnswer.toLowerCase()){
             $(`.quiz${i} .answer i`).addClass("fa-solid fa-o");
             $(`.quiz${i} .answer`).css("display", "flex");
             count += 1;
@@ -35,4 +35,21 @@ function result(){
     $('#ids').val(ids);
     $('#results').val(results);
     $('form').submit();
+}
+
+for(let i = 0; i < 10; i++){
+    let arrayedWord = selectedWords[i].word.split(' ');
+    let newArray = [];
+    let newHtml = "";
+    for(let j = 0; j < arrayedWord.length; j++){
+        let newObject = {
+            "firstLetter": arrayedWord[j].slice(0,1),
+            "letterCount": String(arrayedWord[j].length) 
+        };
+        newArray.push(newObject);
+    }
+    newArray.forEach((e)=>{
+        newHtml += (e.firstLetter + "_(" + e.letterCount + ")" + "  ");
+    });
+    $(`.quiz${i+1} aside`).eq(0).children().eq(0).html(newHtml);
 }
